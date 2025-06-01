@@ -81,11 +81,11 @@ return {
             -- don't allow the popup to overlap with the cursor
             no_overlap = true,
 
-            width = 1,
-            height = { min = 4, max = 25 },
-            col = 0,
-            row = math.huge,
-            border = "none",
+            -- width = 1,
+            -- height = { min = 4, max = 25 },
+            -- col = 0,
+            -- row = math.huge,
+            -- border = "none",
 
             -- extra window padding [top/bottom, right/left]
             padding = { 1, 2 },
