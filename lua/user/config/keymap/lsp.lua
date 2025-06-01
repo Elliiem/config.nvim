@@ -11,13 +11,11 @@ function this.configure()
             wk.add({
                 {
                     "l",
-                    desc = "[L]SP",
-                    mode = { "n" },
+                    group = "LSP",
 
                     {
                         "lg",
-                        desc = "[G]oto",
-                        mode = { "n" },
+                        group = "[G]oto",
 
                         {
                             "lgd",
@@ -71,8 +69,7 @@ function this.configure()
                 wk.add({
                     {
                         "l",
-                        desc = "[L]SP",
-                        mode = { "n" },
+                        group = "LSP",
 
                         {
                             "lth",

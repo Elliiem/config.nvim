@@ -7,7 +7,9 @@ function this.configure()
     wk.register({
         {
             "F",
-            conform.format({ async = true, lsp_fallback = false }),
+            function()
+                conform.format({ async = true, lsp_fallback = false })
+            end,
             desc = "[F]ormat",
             mode = { "n" },
         },

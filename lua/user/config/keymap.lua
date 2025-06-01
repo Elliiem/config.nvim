@@ -3,8 +3,8 @@ local wk = require("which-key")
 local this = {}
 
 function this.configure()
-    -- require("user.config.keymap.lsp").configure()
-    -- require("user.config.keymap.conform").configure()
+    require("user.config.keymap.lsp").configure()
+    require("user.config.keymap.conform").configure()
 
     wk.add({
         {
@@ -115,71 +115,6 @@ function this.configure()
             end,
             desc = "Jump to middle of content",
             mode = { "n", "v", "i" },
-        },
-        {
-            "h",
-            "<C-S-w><Left>",
-            mode = { "n" },
-        },
-        {
-            "<C-h>",
-            "<C-S-w>H",
-        },
-        {
-            "<C-S-h>",
-            function()
-                vim.cmd("lefta vs")
-            end,
-            mode = { "n" },
-        },
-        {
-            "j",
-            "<C-S-w><Down>",
-            mode = { "n" },
-        },
-        {
-            "<C-j>",
-            "<C-S-w>J",
-        },
-        {
-            "<C-S-j>",
-            function()
-                vim.cmd("rightb sp")
-            end,
-            mode = { "n" }
-        },
-        {
-            "k",
-            "<C-S-w><Up>",
-            mode = { "n" },
-        },
-        {
-            "<C-k>",
-            "<C-S-w>K",
-        },
-        {
-            "<C-S-k>",
-            function()
-                vim.cmd("lefta sp")
-            end,
-            mode = { "n" },
-        },
-        {
-            "l",
-            "<C-S-w><Right>",
-            mode = { "n" },
-        },
-        {
-            "<C-l>",
-            "<C-S-w>L",
-            mode = { "n" },
-        },
-        {
-            "<C-S-l>",
-            function()
-                vim.cmd("rightb vs")
-            end,
-            mode = { "n" },
         },
         {
             "<C-p>",
