@@ -1,4 +1,4 @@
-local wk = require("wich-key")
+local wk = require("which-key")
 
 local this = {}
 
@@ -8,47 +8,58 @@ function this.configure()
     vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
         callback = function(event)
-            wk.register({
-                ["l"] = {
-                    name = "[L]SP",
+            wk.add({
+                {
+                    "l",
+                    desc = "[L]SP",
                     mode = { "n" },
-                    ["g"] = {
-                        name = "[G]oto",
+
+                    {
+                        "lg",
+                        desc = "[G]oto",
                         mode = { "n" },
-                        ["d"] = {
+
+                        {
+                            "lgd",
                             telescope_builtin.lsp_definitions,
-                            "[D]efinition",
+                            desc = "[D]efinition",
                             mode = { "n" },
                         },
-                        ["D"] = {
+                        {
+                            "lgD",
                             vim.lsp.buf.declaration,
-                            "[D]eclaration",
+                            desc = "[D]eclaration",
                             mode = { "n" },
                         },
-                        ["r"] = {
+                        {
+                            "lgr",
                             telescope_builtin.lsp_references,
-                            "[R]eferences",
+                            desc = "[R]eferences",
                             mode = { "n" },
                         },
-                        ["i"] = {
+                        {
+                            "lgi",
                             telescope_builtin.lsp_implementations,
-                            "[I]mplementations",
+                            desc = "[I]mplementations",
                             mode = { "n" },
                         },
                     },
-                    ["rn"] = {
+                    {
+                        "lrn",
                         vim.lsp.buf.rename,
-                        "[R]e[N]ame",
+                        desc = "[R]e[N]ame",
                         mode = { "n" },
                     },
-                    ["ca"] = {
+                    {
+                        "lca",
                         vim.lsp.buf.code_action,
-                        "[C]ode [A]ction",
+                        desc = "[C]ode [A]ction",
                         mode = { "n" },
                     },
-                    ["h"] = {
+                    {
+                        "lh",
                         vim.lsp.buf.hover,
-                        "[H]over",
+                        desc = "[H]over",
                         mode = { "n" },
                     },
                 },
@@ -57,12 +68,17 @@ function this.configure()
             local client = vim.lsp.get_client_by_id(event.data.client_id)
 
             if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-                wk.register({
-                    ["l"] = {
-                        name = "[L]SP",
-                        ["th"] = {
+                wk.add({
+                    {
+                        "l",
+                        desc = "[L]SP",
+                        mode = { "n" },
+
+                        {
+                            "lth",
                             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()),
-                            "[T]oggle Inlay [H]ints"
+                            desc = "[T]oggle Inlay [H]ints",
+                            mode = { "n" },
                         }
                     }
                 })

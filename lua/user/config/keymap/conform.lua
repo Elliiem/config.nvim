@@ -5,8 +5,11 @@ local this = {}
 
 function this.configure()
     wk.register({
-        ["F"] = {
-            conform.format({ async = true, lsp_fallback = false })
+        {
+            "F",
+            conform.format({ async = true, lsp_fallback = false }),
+            desc = "[F]ormat",
+            mode = { "n" },
         },
     })
 end
