@@ -3,8 +3,8 @@ local wk = require("which-key")
 local this = {}
 
 function this.configure()
-    require("user.config.keymap.lsp").configure()
-    require("user.config.keymap.conform").configure()
+    -- require("user.config.keymap.lsp").configure()
+    -- require("user.config.keymap.conform").configure()
 
     wk.add({
         {
