@@ -1,11 +1,11 @@
-return {  -- Autoformat
+return { -- Autoformat
 	"stevearc/conform.nvim",
 	lazy = false,
 	keys = {
 		{
 			"<leader>f",
 			function()
-				require("conform").format({ async = true, lsp_fallback = true })
+				require("conform").format({ async = true, lsp_fallback = false })
 			end,
 			mode = "",
 			desc = "[F]ormat buffer",
@@ -23,8 +23,15 @@ return {  -- Autoformat
 				lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 			}
 		end,
+		formatters = {
+			uncrustify = {
+				command = "uncrustify",
+				args = { "-c", "uncrustify.cfg", "--assume", "$FILENAME" }
+			}
+		},
 		formatters_by_ft = {
 			lua = { "stylua" },
+			cpp = { "uncrustify" }
 			-- Conform can also run multiple formatters sequentially
 			-- python = { "isort", "black" },
 			--

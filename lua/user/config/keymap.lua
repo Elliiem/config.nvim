@@ -178,6 +178,16 @@ function this.configure()
             end,
             mode = { "n" },
         },
+        {
+            "<C-p>",
+            "\"0p",
+            mode = { "n" },
+        },
+        {
+            "<C-S-p>",
+            "\"0P",
+            mode = { "n" },
+        },
     })
 end
 

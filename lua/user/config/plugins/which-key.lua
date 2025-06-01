@@ -3,10 +3,6 @@ return {
 
 	event = "VimEnter",
 
-	init = function()
-		require("user.config.keymap").configure()
-	end,
-
 	opts = {
 		plugins = {
 			presets = {

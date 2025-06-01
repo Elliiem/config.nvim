@@ -12,18 +12,20 @@ function this.setupLazy()
 
 
     require("lazy").setup({
-            require("user.config.plugins.vim-sleuth"),
-            require("user.config.plugins.gitsigns"),
-            require("user.config.plugins.which-key"),
-            require("user.config.plugins.telescope"),
-            require("user.config.plugins.nvim-lspconfig"),
-            require("user.config.plugins.conform"),
-            require("user.config.plugins.nvim-cmp"),
-            require("user.config.plugins.tokyonight"),
-            require("user.config.plugins.todo-comments"),
-            require("user.config.plugins.mini"),
-            require("user.config.plugins.nvim-treesitter"),
-            require("user.config.plugins.asciidoc-preview"),
+            -- require("user.config.plugins.vim-sleuth"),
+            require("user.config.plugins.gitsigns"),         --  TODO:
+            require("user.config.plugins.which-key"),        --  TODO:
+            require("user.config.plugins.telescope"),        --  TODO:
+            require("user.config.plugins.nvim-lspconfig"),   --  TODO:
+            require("user.config.plugins.conform"),          --  TODO:
+            require("user.config.plugins.nvim-cmp"),         --  TODO:
+            require("user.config.plugins.todo-comments"),    --  TODO:
+            require("user.config.plugins.mini"),             --  TODO:
+            require("user.config.plugins.nvim-treesitter"),  --  TODO:
+            require("user.config.plugins.asciidoc-preview"), --  TODO:
+            require("user.config.plugins.snacks"),           --  TODO:
+            require("user.config.plugins.checkmate"),        --  TODO:
+            require("user.config.plugins.Enby"),
         },
         {
             ui = {

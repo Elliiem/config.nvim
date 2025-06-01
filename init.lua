@@ -20,7 +20,7 @@
 =====================================================================
 =====================================================================
 
-]]
+]] --
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -147,6 +147,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 
 require("user.config.plugins").setupLazy()
---require("user.config.lsp").setup()
+require("user.config.keymap").configure()
 
 -- vim: ts=2 sts=2 sw=2 et

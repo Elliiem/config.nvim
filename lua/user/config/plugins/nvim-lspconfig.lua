@@ -125,9 +125,10 @@ return { -- LSP Configuration & Plugins
 
 		local lspconfig = require("lspconfig")
 
-
 		vim.filetype.add({ extension = { zig = 'zig', ["zig.zon"] = 'zig' } })
-		lspconfig.zls.setup({})
+		lspconfig.zls.setup({
+			cmd = { "/home/priv/elliiem/dev/zig/tools/zls/zig-out/bin/zls" }
+		})
 
 		lspconfig.lua_ls.setup({
 			Lua = {
@@ -141,13 +142,15 @@ return { -- LSP Configuration & Plugins
 
 		vim.filetype.add({ extension = { cpp = 'cpp', hpp = 'cpp' } })
 		lspconfig.clangd.setup({
-			inlay_hints = {
-				right_align = true
-			}
+			cmd = { "clangd", "--header-insertion=never" }
 		})
 
 		lspconfig.pylsp.setup({})
 
 		lspconfig.nushell.setup({})
+
+		lspconfig.jdtls.setup({
+			cmd = { "jdtls", "--java-executable", "/usr/lib/jvm/java-21-openjdk/bin/java" }
+		})
 	end,
 }
