@@ -6,30 +6,29 @@ function this.configure()
     require("user.config.keymap.lsp").configure()
     require("user.config.keymap.conform").configure()
 
+
     wk.add({
         {
             "<leader>",
             desc = "more",
+        },
+        {
+            "<leader>wk",
+            function()
+                vim.cmd("WhichKey")
+            end,
+            mode = { "n" },
+        },
+        {
+            "<leader>t",
+            desc = "tab",
 
             {
-                "<leader>wk",
+                "<leader>tn",
                 function()
-                    vim.cmd("WhichKey")
+                    vim.cmd("tabnew")
                 end,
                 mode = { "n" },
-            },
-
-            {
-                "<leader>t",
-                desc = "tab",
-
-                {
-                    "<leader>tn",
-                    function()
-                        vim.cmd("tabnew")
-                    end,
-                    mode = { "n" },
-                },
             },
         },
         {
@@ -71,7 +70,7 @@ function this.configure()
             mode = { "n", "i", "v" },
         },
         {
-            "<C-S-Left>",
+            "<S-Left>",
             function()
                 local line = vim.api.nvim_get_current_line()
 
@@ -81,7 +80,7 @@ function this.configure()
             mode = { "n", "v", "i" },
         },
         {
-            "<C-S-Right>",
+            "<S-Right>",
             function()
                 local column = vim.api.nvim_get_current_line():gsub("%s*$", ""):len()
 
@@ -91,17 +90,18 @@ function this.configure()
             mode = { "n", "v" }
         },
         {
-            "<C-S-Right>",
+            "<S-Right>",
             function()
-                local column = vim.api.nvim_get_current_line():gsub("%s*$", ""):len() + 1
+                local column = vim.api.nvim_get_current_line():gsub("%s*$", ""):len()
 
-                vim.fn.cursor(vim.fn.line("."), column)
+
+                vim.fn.cursor(vim.fn.line("."), column + 1)
             end,
             desc = "Jump behind content",
             mode = { "i" }
         },
         {
-            "<C-S-Up>",
+            "<S-Up>",
             function()
                 local line = vim.api.nvim_get_current_line()
 
@@ -114,7 +114,23 @@ function this.configure()
                 vim.fn.cursor(vim.fn.line("."), column)
             end,
             desc = "Jump to middle of content",
-            mode = { "n", "v", "i" },
+            mode = { "n", "v" },
+        },
+        {
+            "<S-Up>",
+            function()
+                local line = vim.api.nvim_get_current_line()
+
+                local stripped = line:gsub("^%s*", ""):gsub("%s*$", "")
+
+                local leading_whitespace = line:match("^%s*"):len()
+
+                local column = ((math.floor(stripped:len() / 2)) + leading_whitespace)
+
+                vim.fn.cursor(vim.fn.line("."), column + 1)
+            end,
+            desc = "Jump to middle of content",
+            mode = { "i" },
         },
         {
             "<C-p>",
@@ -125,6 +141,11 @@ function this.configure()
             "<C-S-p>",
             "\"0P",
             mode = { "n" },
+        },
+        { -- override <S-k>
+            "<S-k>",
+            "",
+            hidden = true
         },
     })
 end

@@ -1,18 +1,20 @@
 local this = {}
 
-function this.setupLazy()
-    -- [[ Install `lazy.nvim` plugin manager ]]
-    --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+local function installLazy()
     local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
     if not vim.loop.fs_stat(lazypath) then
         local lazyrepo = "https://github.com/folke/lazy.nvim.git"
         vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     end ---@diagnostic disable-next-line: undefined-field
-    vim.opt.rtp:prepend(lazypath)
 
+    vim.opt.rtp:prepend(lazypath)
+end
+
+function this.setup()
+    installLazy()
 
     require("lazy").setup({
-            -- require("user.config.plugins.vim-sleuth"),
             require("user.config.plugins.gitsigns"),
             require("user.config.plugins.which-key"),
             require("user.config.plugins.telescope"),
