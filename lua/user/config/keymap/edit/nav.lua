@@ -47,7 +47,7 @@ end
 
 
 
-function this.configure()
+function this.setup()
     wk.add({
         {
             "<C-j>",

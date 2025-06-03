@@ -2,12 +2,12 @@ local wk = require("which-key")
 
 local this = {}
 
-function this.configure()
-    require("user.config.keymap.edit").configure()
-    require("user.config.keymap.lsp").configure()
+function this.setup()
+    require("user.config.keymap.edit").setup()
+    require("user.config.keymap.lsp").setup()
     require("user.config.keymap.window").setup()
 
-    require("user.config.keymap.conform").configure()
+    require("user.config.keymap.conform").setup()
 
     wk.add({
         {

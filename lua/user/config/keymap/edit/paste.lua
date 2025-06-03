@@ -2,7 +2,7 @@ local wk = require("which-key")
 
 local this = {}
 
-function this.configure()
+function this.setup()
     wk.add({
         {
             "<C-p>",

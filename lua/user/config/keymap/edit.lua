@@ -1,8 +1,8 @@
 local this = {}
 
-function this.configure()
-    require("user.config.keymap.edit.nav").configure()
-    require("user.config.keymap.edit.paste").configure()
+function this.setup()
+    require("user.config.keymap.edit.nav").setup()
+    require("user.config.keymap.edit.paste").setup()
 end
 
 return this

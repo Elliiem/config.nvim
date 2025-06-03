@@ -3,7 +3,7 @@ local conform = require("conform")
 
 local this = {}
 
-function this.configure()
+function this.setup()
     wk.add({
         {
             "<leader>F",

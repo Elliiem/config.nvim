@@ -137,6 +137,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 require("user.config.plugins").setup()
-require("user.config.keymap").configure()
+require("user.config.keymap").setup()
 
 -- vim: ts=2 sts=2 sw=2 et
