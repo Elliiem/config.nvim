@@ -81,7 +81,7 @@ function this.setup()
                 vim.fn.cursor(vim.fn.line("."), line:match("^%s*"):len() + 1)
             end,
             desc = "Jump in front of content",
-            mode = { "n", "v", "i" },
+            mode = { "n", "v" },
         },
         {
             "<S-l>",
@@ -92,17 +92,6 @@ function this.setup()
             end,
             desc = "Jump behind content",
             mode = { "n", "v" }
-        },
-        {
-            "<S-l>",
-            function()
-                local column = vim.api.nvim_get_current_line():gsub("%s*$", ""):len()
-
-
-                vim.fn.cursor(vim.fn.line("."), column + 1)
-            end,
-            desc = "Jump behind content",
-            mode = { "i" }
         },
         {
             "<S-k>",

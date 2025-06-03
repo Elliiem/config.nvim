@@ -36,8 +36,22 @@ function this.setup()
                     desc = "Right",
                     mode = { "n" }
                 }
+            },
+            {
+                "<leader>ws",
+                group = "[S]plit",
 
-            }
+                {
+                    "<leader>wsv",
+                    ":vert sp<CR>",
+                    desc = "[V]ertical",
+                },
+                {
+                    "<leader>wsh",
+                    ":hor sp<CR>",
+                    desc = "[H]orizontal",
+                }
+            },
         }
     })
 end
